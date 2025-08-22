@@ -133,7 +133,7 @@ contains
         do while (k .LE. k_max)
 
                 k=k+1
-                write(6,*) 'Iteration: ', k
+                !write(6,*) 'Iteration: ', k
                 allocate(h(n))
                 call Matvec(n,p,h)
 
@@ -187,8 +187,8 @@ contains
 
         norma_r=dnrm2(n, r, 1)
         norma_infty_r = maxval(abs(r))
-        write(6,*) 'The 2-norm of the residual is: ' , norma_r
-        write(6,*) 'The infinity norm of the residual is: ', norma_infty_r
+        !write(6,*) 'The 2-norm of the residual is: ' , norma_r
+        !write(6,*) 'The infinity norm of the residual is: ', norma_infty_r
         
         ! Check for convergence
 
@@ -198,8 +198,8 @@ contains
                 converged=.TRUE.
         else
                 converged=.FALSE.
-                write(6,*) 'Convergence not reached.'
-                print *
+                !write(6,*) 'Convergence not reached.'
+                !print *
         end if
 
         end subroutine residuo

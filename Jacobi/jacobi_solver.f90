@@ -97,8 +97,8 @@ contains
         
         do while (k .LE. k_max)
                 k=k+1
-                print *
-                write(6,*) 'Iteration: ', k
+                !print *
+                !write(6,*) 'Iteration: ', k
 
                 ! Compute the off-diagonal part: z = A_off_diag * x_old
                 call fuori_diag_A(n,z,x_old)
@@ -143,8 +143,8 @@ contains
         r=x-x_old
         norma=dnrm2(n, r, 1)            ! Euclidean (L2) norm of the residual
         norma_infty = maxval(abs(r))    ! Infinity norm (max absolute value)
-        write(6,*) 'The 2-norm of the residual is: ', norma
-        write(6,*) 'The infinity norm of the residual is: ', norma_infty
+        !write(6,*) 'The 2-norm of the residual is: ', norma
+        !write(6,*) 'The infinity norm of the residual is: ', norma_infty
         
         ! Check if the solution has converged
         if (norma .le. tau .and. norma_infty .le. tau) then
