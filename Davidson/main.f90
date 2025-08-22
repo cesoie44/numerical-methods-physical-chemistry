@@ -15,8 +15,8 @@
 program main
 
         use utils                                       ! Module containing general utilities (define_a, free_a)
-        use davidson_solver                             ! Module implementing the Davidson eigenvalue solver
         use ortho                                       ! Module for orthonormalization routines
+        use davidson_solver                                    ! Module implementing the Davidson eigenvalue solver
 
         implicit none
         integer :: n,n_eig

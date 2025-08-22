@@ -4,7 +4,7 @@
 FC = gfortran
 #FFLAGS = -fopenmp -g -fbacktrace -fcheck=all
 FFLAGS = -g -fbacktrace -fcheck=all  -O3
-LIBS = -lblas -llapack
+LIBS = -llapack -lblas
 MODS   = utils.o ortho.o davidson_solver.o
 OBJS   = main.o
 #
@@ -18,4 +18,3 @@ all:    $(MODS) $(OBJS)
 #
 clean:
 	rm -fr $(MODS) $(OBJS) *.exe *.mod
-

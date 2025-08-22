@@ -1,6 +1,6 @@
 
 ! ==============================================================================
-! Module     : davidson_solver
+! Module     : davidson
 ! Purpose    : Solve for eigenvalues using the Davidson algorithm
 ! Description:
 !     - Iterative solver for a few eigenvalues of large symmetric matrices.
@@ -13,7 +13,6 @@ module davidson_solver
 
         use utils
         use ortho
-
 contains
 
 !-----------------------------------------------------------------------------------------------------------------------------------
@@ -73,7 +72,7 @@ contains
                 end do
 
                 do while (k .LE. k_max)         ! Davidson main iteration loop
-                        write(6,*) 'Iteration: ', k                       
+                        !write(6,*) 'Iteration: ', k                       
                         k=k+1
                         m=m+1
                         ldu=m*n_eig
@@ -109,7 +108,6 @@ contains
                         
 
                         call convergenza(n,R,tau,logic,n_eig)                                   ! Check convergence
-                        print*
                 
 
                         if (logic) then
@@ -119,12 +117,7 @@ contains
                                         write(6,*) eigenvalues(i)
                                 end do
                                 exit
-                        else
-                                write(6,*) 'Convergence not reached.' 
-                                                      
                         end if
-                        print *            
-
 
                         do i=1,n                                                                ! Build correction vectors Y
                                 do j=1,n_eig

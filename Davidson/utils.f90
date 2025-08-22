@@ -57,9 +57,9 @@ subroutine convergenza(n,R,tau,logic,n_eig)
 
          do i=1,n_eig       
                 normr=dnrm2(n, R(:,i), 1)
-                write(6,*) 'The 2-norm of column',i,'is', normr
+                !write(6,*) 'The 2-norm of column',i,'is', normr
                 norminf=maxval(abs(R(:,i)))
-                write(6,*) 'The infinity norm of column',i,'is', norminf
+                !write(6,*) 'The infinity norm of column',i,'is', norminf
                 if (.NOT.(normr .LE. tau .AND. norminf .LE. tau)) then
                         converged=.FALSE.
                 end if
